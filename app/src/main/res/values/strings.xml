@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RSS</string>
+    <string name="message_loading">Loading…</string>
 </resources>
