@@ -57,11 +57,9 @@ abstract class BaseFragment <V : BaseViewModel, B : ViewDataBinding> :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeLiveDate()
-        bindObservables()
         onViewInitialized()
     }
 
-    abstract fun bindObservables()
 
     private fun observeLiveDate() {
         viewModel.activityAction.observe(viewLifecycleOwner, Observer { it?.invoke(requireActivity()) })

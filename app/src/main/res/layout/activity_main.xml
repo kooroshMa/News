@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.rss.base.BaseViewModel" />
+            type="com.example.rss.ui.main.MainViewModel" />
         <variable
             name="item"
             type="int" />

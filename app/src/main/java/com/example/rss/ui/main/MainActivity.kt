@@ -1,12 +1,16 @@
 package com.example.rss.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import com.example.rss.base.BaseActivity
+import com.example.rss.databinding.ActivityMainBinding
 import com.example.rss.R
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>(){
+
+    override val viewModel: MainViewModel by getLazyViewModel()
+    override val layoutId: Int = R.layout.activity_main
+
+    override fun onViewInitialized() {
+
     }
+
 }
