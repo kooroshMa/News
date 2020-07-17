@@ -55,6 +55,7 @@ dependencies {
     implementation Libs.Jetpack.constraintLayout
     implementation Libs.Jetpack.lifecycleVmKtx
     implementation Libs.Jetpack.legacySupport
+    implementation Libs.Jetpack.room
 
     // Dagger
     implementation Libs.Common.dagger

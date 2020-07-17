@@ -30,5 +30,6 @@ object Versions {
     const val crashlytics = "2.10.1"
     const val core = "17.0.1"
     const val tagManager = "17.0.0"
+    const val room = "2.2.3"
 
 }

@@ -18,7 +18,6 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         bottomNav()
     }
 
-
     private fun bottomNav() {
         bottom_navigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {

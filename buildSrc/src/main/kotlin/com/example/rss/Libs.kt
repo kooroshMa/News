@@ -20,6 +20,9 @@ object Libs {
         const val annotations = "androidx.annotation:annotation:${Versions.material}"
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
         const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
+        const val room = "androidx.room:room-runtime:${Versions.room}"
+        const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
+        const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
     }
 
     object Common {
