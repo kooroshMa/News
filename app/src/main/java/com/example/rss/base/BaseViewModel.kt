@@ -1,19 +1,15 @@
 package com.example.rss.base
 
-import android.util.Log
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.ViewModel
-import com.example.rss.util.connectivity.BaseConnectionManager
 import com.example.rss.util.livedata.ActivityActionLiveData
 import com.example.rss.util.livedata.FragmentActionLiveData
 import com.example.rss.util.livedata.SingleEventLiveData
 import io.reactivex.disposables.CompositeDisposable
 
-abstract class BaseViewModel (private val connectionManager: BaseConnectionManager)
-    : ViewModel(),
-    LifecycleObserver {
+abstract class BaseViewModel() : ViewModel(), LifecycleObserver {
 
     val compositeDisposable: CompositeDisposable = CompositeDisposable()
     val activityAction = ActivityActionLiveData()
@@ -27,12 +23,6 @@ abstract class BaseViewModel (private val connectionManager: BaseConnectionManag
         compositeDisposable.clear()
     }
 
-    fun checkConnection() {
-        if (connectionManager.isVPNConnected() == true)
-            Log.d("VPN Status", "Connected")
-        else
-            Log.d("VPN Status", "Nothing")
-    }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     open fun onCreate() {
