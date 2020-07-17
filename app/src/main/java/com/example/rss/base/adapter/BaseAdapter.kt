@@ -13,7 +13,7 @@ import com.example.rss.BR
 
 abstract class BaseAdapter <T, B : ViewDataBinding>(
     private var itemBindingId: Int = BR.item,
-    private var viewModelBindingId: Int = BR.viewModel,
+    private var viewModelBindingId: Int = BR.vm,
     private var viewModel: BaseViewModel?,
     var items: List<T>,
     var onBind: B.(Int) -> Unit = {}

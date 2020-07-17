@@ -4,8 +4,9 @@ import androidx.lifecycle.ViewModelProvider
 import dagger.Binds
 import dagger.Module
 import com.example.rss.di.viewmodel.RssViewModelFactory
+import com.example.rss.ui.main.MainViewModelBuilder
 
-@Module
+@Module(includes = [MainViewModelBuilder::class])
 abstract class ViewModelBuilder {
 
     @Binds
