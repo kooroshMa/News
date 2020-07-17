@@ -34,7 +34,7 @@ abstract class BaseActivity <V : BaseViewModel, B : ViewDataBinding> : DaggerApp
 
         lifecycle.addObserver(viewModel)
         observeLiveDate()
-        onViewInitialized(binding)
+        onViewInitialized()
     }
 
 

@@ -58,7 +58,7 @@ abstract class BaseFragment <V : BaseViewModel, B : ViewDataBinding> :
         super.onViewCreated(view, savedInstanceState)
         observeLiveDate()
         bindObservables()
-        onViewInitialized(binding)
+        onViewInitialized()
     }
 
     abstract fun bindObservables()

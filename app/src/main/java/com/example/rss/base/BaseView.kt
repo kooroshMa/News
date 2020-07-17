@@ -28,7 +28,6 @@ interface BaseView <V : BaseViewModel, B : ViewDataBinding> {
     /**
      * will be called after intialization of view
      *
-     * @param binding refers to [binding]
      */
-    fun onViewInitialized(binding: B) {}
+    fun onViewInitialized() {}
 }
