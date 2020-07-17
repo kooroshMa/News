@@ -4,6 +4,7 @@ import com.example.rss.R
 import com.example.rss.base.BaseFragment
 import com.example.rss.base.ViewModelScope
 import com.example.rss.databinding.FragmentHomeBinding
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
@@ -18,6 +19,13 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
     override fun onViewInitialized() {
         binding.vm = viewModel
 
+        configTabLayoutAndViewPager()
+    }
+
+    fun configTabLayoutAndViewPager(){
+        val fragmentAdapter = HomePagerAdapter(childFragmentManager)
+        view_pager.adapter = fragmentAdapter
+        tabLayout_feeds.setupWithViewPager(view_pager)
     }
 
 }
