@@ -5,11 +5,12 @@ import com.example.rss.di.viewmodel.ViewModelKey
 import com.example.rss.ui.favorite.FavoriteViewModel
 import com.example.rss.ui.home.HomeViewModel
 import com.example.rss.ui.home.jsonFeed.JsonFeedViewModelBuilder
+import com.example.rss.ui.home.xmlFeed.XmlFeedViewModelBuilder
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 
-@Module(includes = [JsonFeedViewModelBuilder::class])
+@Module(includes = [JsonFeedViewModelBuilder::class, XmlFeedViewModelBuilder::class])
 abstract class MainViewModelBuilder {
 
     @Binds
