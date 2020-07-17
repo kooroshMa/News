@@ -11,6 +11,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
     override val layoutId: Int = R.layout.fragment_home
 
     override fun onViewInitialized() {
+        binding.vm = viewModel
 
     }
 
