@@ -6,10 +6,10 @@ import com.example.rss.ui.home.HomeFragmentsProvider
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
-@Module
+@Module(includes = [HomeFragmentsProvider::class])
 abstract class MainFragmentsProvider {
 
-    @ContributesAndroidInjector(modules = [HomeFragmentsProvider::class])
+    @ContributesAndroidInjector
     abstract fun provideHomeFragment(): HomeFragment
 
     @ContributesAndroidInjector

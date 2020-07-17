@@ -34,6 +34,8 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
             }
 
         }
+        bottom_navigation.selectedItemId = R.id.home
+
     }
 
 }

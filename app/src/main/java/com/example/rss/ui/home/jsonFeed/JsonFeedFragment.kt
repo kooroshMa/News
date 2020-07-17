@@ -7,6 +7,7 @@ import com.example.rss.databinding.FragmentJsonFeedBinding
 
 
 class JsonFeedFragment : BaseFragment<JsonFeedViewModel, FragmentJsonFeedBinding>() {
+
     override val viewModel: JsonFeedViewModel by getLazyViewModel(ViewModelScope.FRAGMENT)
     override val layoutId: Int = R.layout.fragment_json_feed
 

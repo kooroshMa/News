@@ -6,6 +6,7 @@ import com.example.rss.base.ViewModelScope
 import com.example.rss.databinding.FragmentXmlFeedBinding
 
 class XmlFeedFragment : BaseFragment<XmlFeedViewModel, FragmentXmlFeedBinding>() {
+
     override val viewModel: XmlFeedViewModel by getLazyViewModel(ViewModelScope.FRAGMENT)
     override val layoutId: Int = R.layout.fragment_xml_feed
 
