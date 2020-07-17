@@ -28,15 +28,17 @@
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/frameLayout_fragmentContainer"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            app:itemTextColor="@color/colorPrimary"
+            app:itemTextColor="@color/white"
+            app:menu="@menu/bottom_nav_menu"
+            app:itemIconTint="@drawable/bottom_navigation_selector"
             />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </layout>
