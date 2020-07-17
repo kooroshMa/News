@@ -1,4 +1,4 @@
-package com.example.rss.ui.jsonFeed
+package com.example.rss.ui.home.jsonFeed
 
 import com.example.rss.base.BaseViewModel
 import javax.inject.Inject

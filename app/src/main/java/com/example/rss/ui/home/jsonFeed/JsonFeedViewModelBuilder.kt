@@ -1,8 +1,7 @@
-package com.example.rss.ui.jsonFeed
+package com.example.rss.ui.home.jsonFeed
 
 import androidx.lifecycle.ViewModel
 import com.example.rss.di.viewmodel.ViewModelKey
-import com.example.rss.ui.home.HomeViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

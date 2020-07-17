@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.example.rss.di.viewmodel.ViewModelKey
 import com.example.rss.ui.favorite.FavoriteViewModel
 import com.example.rss.ui.home.HomeViewModel
-import com.example.rss.ui.jsonFeed.JsonFeedViewModelBuilder
+import com.example.rss.ui.home.jsonFeed.JsonFeedViewModelBuilder
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
