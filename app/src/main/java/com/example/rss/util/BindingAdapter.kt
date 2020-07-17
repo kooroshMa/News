@@ -21,7 +21,7 @@ class BindingAdapter {
 
         @JvmStatic
         @BindingAdapter("srcImageUrl")
-        fun setImageSrcDrawble(imageView: ImageView, drawable: Drawable) {
+        fun setImageSrcDrawable(imageView: ImageView, drawable: Drawable) {
             GlideApp.with(imageView.context).load(drawable).diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imageView)
         }
@@ -36,7 +36,7 @@ class BindingAdapter {
 
         @JvmStatic
         @BindingAdapter("srcCompat")
-        fun setSrcComaptImage(imageView: ImageView, resourceId: Int) {
+        fun setSrcCompatImage(imageView: ImageView, resourceId: Int) {
             imageView.setImageResource(resourceId)
         }
 
