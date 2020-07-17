@@ -7,6 +7,11 @@ import com.example.rss.databinding.FragmentHomeBinding
 
 class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
+    companion object {
+        fun newInstance() =
+            HomeFragment()
+    }
+
     override val viewModel: HomeViewModel by getLazyViewModel(ViewModelScope.FRAGMENT)
     override val layoutId: Int = R.layout.fragment_home
 

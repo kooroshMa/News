@@ -3,7 +3,6 @@ package com.example.rss.ui.main
 import com.example.rss.base.BaseActivity
 import com.example.rss.databinding.ActivityMainBinding
 import com.example.rss.R
-import com.example.rss.util.extension.toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
@@ -22,11 +21,13 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         bottom_navigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> {
-                    toast("home")
+                    viewModel.activityAction{activityAction ->
+                        viewModel.navigator.openHomeFragment(activityAction)}
                     true
                 }
                 R.id.favorite -> {
-                    toast("favorites")
+                    viewModel.activityAction{activityAction ->
+                        viewModel.navigator.openFavoriteFragment(activityAction)}
                     true
                 }
                 else -> false
