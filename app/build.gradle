@@ -60,6 +60,7 @@ dependencies {
     // Dagger
     implementation Libs.Common.dagger
     implementation Libs.Common.daggerAndroid
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt Libs.Common.daggerCompiler
     kapt Libs.Common.daggerAndroidCompiler
 
