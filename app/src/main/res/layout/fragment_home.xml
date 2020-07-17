@@ -31,7 +31,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tabs_feed" />
+            app:layout_constraintTop_toBottomOf="@id/tabLayout_feeds" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
