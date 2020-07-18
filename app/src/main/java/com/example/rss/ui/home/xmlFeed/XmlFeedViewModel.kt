@@ -24,7 +24,7 @@ class XmlFeedViewModel @Inject constructor(
         }
     }
 
-    fun getXmlFeed() {
+    private fun getXmlFeed() {
         xmlFeedUseCase.execute(this.compositeDisposable, this::onGetXmlFeedResponse)
     }
 

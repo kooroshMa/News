@@ -22,7 +22,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
         configTabLayoutAndViewPager()
     }
 
-    fun configTabLayoutAndViewPager(){
+    private fun configTabLayoutAndViewPager(){
         val fragmentAdapter = HomePagerAdapter(childFragmentManager)
         view_pager.adapter = fragmentAdapter
         tabLayout_feeds.setupWithViewPager(view_pager)
