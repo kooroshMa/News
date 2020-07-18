@@ -34,6 +34,7 @@ object Libs {
             "com.google.dagger:dagger-android-processor:${Versions.dagger}"
         const val gson = "com.google.code.gson:gson:${Versions.gson}"
         const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+        const val retrofitSimpleXmlConverter = "com.squareup.retrofit2:converter-simplexml:${Versions.retrofit}"
         const val retrofitGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
         const val retrofitRx = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"
         const val okHttpInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"

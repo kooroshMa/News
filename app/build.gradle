@@ -75,6 +75,8 @@ dependencies {
     implementation Libs.Common.okHttpInterceptor
     implementation Libs.Common.stetho
     implementation Libs.Common.stetho_OkHttp
+    implementation Libs.Common.retrofitSimpleXmlConverter
+
 
     // Glide
     implementation Libs.Common.glide
