@@ -13,9 +13,9 @@ interface XmlFeedDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertXmlFeed(details: List<DetailModel>): List<Long>
 
-    /*@Query("SELECT * FROM xmlFeed WHERE isFavorite=1")
-    fun getFavoriteNewsFa(xmlFeed: String): Flowable<List<DetailModel>>
+    @Query("SELECT * FROM xmlFeed WHERE isFavorite=1")
+    fun getFavoriteXmlFeed(xmlFeed: String): Flowable<List<DetailModel>>
 
     @Query("SELECT * FROM xmlFeed WHERE guid=:id")
-    fun findNewsFaById(id: String): Flowable<DetailModel>*/
+    fun findXmlFeedById(id: String): Flowable<DetailModel>
 }

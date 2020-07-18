@@ -41,6 +41,7 @@ dependencies {
     implementation Libs.Common.kotlin
     implementation Libs.Jetpack.lifecycleExtensions
     implementation Libs.Common.dagger
+    implementation Libs.Jetpack.room
     kapt Libs.Common.daggerCompiler
     implementation Libs.Common.gson
     implementation Libs.Common.rxJava
