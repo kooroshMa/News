@@ -37,6 +37,7 @@ kapt {
 }
 
 dependencies {
+    implementation Libs.Common.retrofitSimpleXmlConverter
     implementation Libs.Common.kotlin
     implementation Libs.Jetpack.lifecycleExtensions
     implementation Libs.Common.dagger
