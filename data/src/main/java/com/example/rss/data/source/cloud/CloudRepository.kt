@@ -4,6 +4,8 @@ import com.example.rss.data.di.JsonFeedQualifier
 import com.example.rss.data.di.XmlFeedQualifier
 import com.example.rss.data.restful.APIs
 import com.example.rss.data.restful.JsonApis
+import com.example.rss.domain.model.xmlFeed.XmlFeedModel
+import io.reactivex.Flowable
 
 
 class CloudRepository(
@@ -11,4 +13,7 @@ class CloudRepository(
     private val jsonFeedApi: JsonApis
 ) : BaseCloudRepository {
 
+    override fun getXmlFeed(): Flowable<XmlFeedModel> {
+        return xmlFeedApi.getXmlFeeds()
+    }
 }
