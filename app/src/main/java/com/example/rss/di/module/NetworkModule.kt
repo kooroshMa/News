@@ -58,25 +58,25 @@ object NetworkModule {
         return builder.build()
     }
 
-    @XmlFeedQualifier
+    @JsonFeedQualifier
     @Singleton
     @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient, gson: Gson): Retrofit {
         return Retrofit.Builder().client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .baseUrl(SecretFields().getBaseURI())
+            .baseUrl(SecretFields().getJsonBaseURI())
             .build()
     }
 
-    @JsonFeedQualifier
+    @XmlFeedQualifier
     @Singleton
     @Provides
-    fun provideRetrofitJsonFeed(okHttpClient: OkHttpClient, gson: Gson): Retrofit {
+    fun provideRetrofitJsonFeed(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder().client(okHttpClient)
             .addConverterFactory(SimpleXmlConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .baseUrl(SecretFields().getJsonBaseURI())
+            .baseUrl(SecretFields().getBaseURI())
             .build()
     }
 
