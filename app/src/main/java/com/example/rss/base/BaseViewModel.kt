@@ -36,6 +36,11 @@ abstract class BaseViewModel() : ViewModel(), LifecycleObserver {
     open fun onStop() {
     }
 
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    open fun onResume(){
+
+    }
+
     fun showLoading() {
         showLoading.value = true
     }

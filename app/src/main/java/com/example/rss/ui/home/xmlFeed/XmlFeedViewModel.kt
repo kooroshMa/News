@@ -14,9 +14,14 @@ class XmlFeedViewModel @Inject constructor(
     private val xmlFeedUseCase: XmlFeedUseCase
 ) : BaseViewModel() {
 
-    override fun onCreate() {
-        super.onCreate()
-        getXmlFeed()
+    private var xmlFeed: Unit? = null
+
+    override fun onResume() {
+        super.onResume()
+
+        if(xmlFeed==null){
+            xmlFeed = getXmlFeed()
+        }
     }
 
     fun getXmlFeed() {
@@ -27,7 +32,6 @@ class XmlFeedViewModel @Inject constructor(
     fun onGetXmlFeedResponse(response: UseCaseResponse<XmlFeedModel>){
         when (response) {
             is SuccessResponse -> {
-                showToastMessage("succ")
                 showToastMessage(response.value.channel?.details?.get(0)?.title.orEmpty())
             }
             is ErrorResponse -> {
