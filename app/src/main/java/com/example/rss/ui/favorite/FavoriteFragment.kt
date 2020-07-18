@@ -1,11 +1,9 @@
 package com.example.rss.ui.favorite
 
-import androidx.fragment.app.Fragment
 import com.example.rss.R
 import com.example.rss.base.BaseFragment
 import com.example.rss.base.ViewModelScope
 import com.example.rss.databinding.FragmentFavoriteBinding
-import com.example.rss.ui.home.HomeFragment
 
 class FavoriteFragment : BaseFragment<FavoriteViewModel, FragmentFavoriteBinding>() {
 
