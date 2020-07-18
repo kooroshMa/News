@@ -53,5 +53,6 @@ dependencies {
     testImplementation Libs.Testing.junit
     testImplementation Libs.Testing.mockitoKotlin
     implementation Libs.Jetpack.room
-    implementation Libs.Jetpack.roomKtx
+    implementation Libs.Jetpack.roomRx
+    kapt Libs.Jetpack.roomCompiler
 }

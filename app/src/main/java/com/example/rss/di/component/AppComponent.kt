@@ -6,6 +6,7 @@ import dagger.Component
 import com.example.rss.app.RSSApplication
 import com.example.rss.di.builder.ActivityBuilder
 import com.example.rss.di.module.AppModule
+import com.example.rss.di.module.DatabaseModule
 import com.example.rss.di.module.NetworkModule
 import com.example.rss.di.module.UtilModule
 import dagger.android.AndroidInjector
@@ -19,7 +20,8 @@ import javax.inject.Singleton
         (AppModule::class),
         (NetworkModule::class),
         (UtilModule::class),
-        (ActivityBuilder::class)]
+        (ActivityBuilder::class),
+        (DatabaseModule::class)]
 )
 interface AppComponent : AndroidInjector<RSSApplication> {
 

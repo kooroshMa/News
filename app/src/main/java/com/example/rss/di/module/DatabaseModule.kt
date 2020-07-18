@@ -3,6 +3,7 @@ package com.example.rss.di.module
 import android.content.Context
 import androidx.room.Room
 import com.example.rss.data.source.db.AppDataBase
+import com.example.rss.data.source.db.dao.XmlFeedDao
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -17,5 +18,10 @@ object DatabaseModule {
             .databaseBuilder(context, AppDataBase::class.java, AppDataBase.DB_NAME)
             .fallbackToDestructiveMigration()
             .build()
+    }
+
+    @Provides
+    fun provideXmlFeedDao(appDataBase: AppDataBase): XmlFeedDao {
+        return appDataBase.xmlFeedDao()
     }
 }

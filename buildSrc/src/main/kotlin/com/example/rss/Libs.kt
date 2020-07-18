@@ -21,7 +21,7 @@ object Libs {
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
         const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
         const val room = "androidx.room:room-runtime:${Versions.room}"
-        const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
+        const val roomRx = "androidx.room:room-rxjava2:${Versions.room}"
         const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
     }
 

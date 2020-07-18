@@ -5,6 +5,7 @@ import com.example.rss.base.BaseViewModel
 import com.example.rss.domain.model.response.ErrorResponse
 import com.example.rss.domain.model.response.SuccessResponse
 import com.example.rss.domain.model.response.UseCaseResponse
+import com.example.rss.domain.model.xmlFeed.DetailModel
 import com.example.rss.domain.model.xmlFeed.XmlFeedModel
 import com.example.rss.domain.usecase.xmlFeed.XmlFeedUseCase
 import javax.inject.Inject
@@ -29,10 +30,10 @@ class XmlFeedViewModel @Inject constructor(
     }
 
     @VisibleForTesting
-    fun onGetXmlFeedResponse(response: UseCaseResponse<XmlFeedModel>){
+    fun onGetXmlFeedResponse(response: UseCaseResponse<List<DetailModel>>){
         when (response) {
             is SuccessResponse -> {
-                showToastMessage(response.value.channel?.details?.get(0)?.title.orEmpty())
+                showToastMessage(response.value[0].title)
             }
             is ErrorResponse -> {
                 showToastMessage("fail")

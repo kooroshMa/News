@@ -11,6 +11,6 @@ abstract class AppDataBase : RoomDatabase() {
         const val DB_NAME = "rss.db"
         const val VERSION = 1
     }
-    
+
     abstract fun xmlFeedDao(): XmlFeedDao
 }
