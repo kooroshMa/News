@@ -1,5 +1,6 @@
 package com.example.rss.data.repository
 
+import android.util.Log
 import com.example.rss.data.di.Cloud
 import com.example.rss.data.source.cloud.BaseCloudRepository
 import com.example.rss.data.source.db.dao.XmlFeedDao
@@ -21,7 +22,9 @@ class XmlFeedRepositoryImpl @Inject constructor(
                     getXmlFeedFromCloud()
                 else
                 // there are some movies in db, so attempt to get them
-                    xmlFeedDao.getXmlFeed()
+                    xmlFeedDao.getXmlFeed().also {
+                        getXmlFeedFromCloud()
+                    }
             }
     }
 
@@ -37,9 +40,9 @@ class XmlFeedRepositoryImpl @Inject constructor(
     /**
      * Attempts to insert fetched xmlFeed to database and returns the given list
      */
-    private fun insertXmlFeedToDb(xmlFeedModel: List<DetailModel>): List<DetailModel> {
-        xmlFeedDao.insertXmlFeed(xmlFeedModel)
-        return xmlFeedModel
+    private fun insertXmlFeedToDb(xmlFeeds: List<DetailModel>): List<DetailModel> {
+        xmlFeedDao.insertXmlFeed(xmlFeeds)
+        return xmlFeeds
     }
 
 }
