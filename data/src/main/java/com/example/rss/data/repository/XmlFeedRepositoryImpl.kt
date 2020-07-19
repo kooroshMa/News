@@ -1,6 +1,5 @@
 package com.example.rss.data.repository
 
-import android.util.Log
 import com.example.rss.data.di.Cloud
 import com.example.rss.data.source.cloud.BaseCloudRepository
 import com.example.rss.data.source.db.dao.XmlFeedDao

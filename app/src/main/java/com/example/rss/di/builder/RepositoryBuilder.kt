@@ -1,8 +1,10 @@
 package com.example.rss.di.builder
 
 import com.example.rss.data.mapper.CloudErrorMapperImpl
+import com.example.rss.data.repository.JsonFeedRepositoryImpl
 import com.example.rss.data.repository.XmlFeedRepositoryImpl
 import com.example.rss.domain.mapper.CloudErrorMapper
+import com.example.rss.domain.repository.JsonFeedRepository
 import com.example.rss.domain.repository.XmlFeedRepository
 import dagger.Binds
 import dagger.Module
@@ -15,5 +17,8 @@ abstract class RepositoryBuilder {
 
     @Binds
     abstract fun bindXmlFeedRepository(xmlFeedRepositoryImpl: XmlFeedRepositoryImpl):XmlFeedRepository
+
+    @Binds
+    abstract fun bindJsonFeedRepository(jsonFeedRepositoryImpl: JsonFeedRepositoryImpl):JsonFeedRepository
 
 }
