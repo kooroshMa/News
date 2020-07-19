@@ -8,6 +8,7 @@
 
     <color name="white">#FFFFFF</color>
     <color name="gold500">#FFbF00</color>
-    <color name="gold100">#FFEBB2</color>
     <color name="gold200">#FFDF81</color>
+    <color name="gold100">#FFEBB2</color>
+    <color name="gold50">#FFF8E1</color>
 </resources>

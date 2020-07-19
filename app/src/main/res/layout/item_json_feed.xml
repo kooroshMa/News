@@ -87,6 +87,7 @@
                 android:contentDescription="@string/favorites"
                 android:padding="4dp"
                 android:tint="@color/gold500"
+                android:src="@{item.isFavorite ? @drawable/ic_star : @drawable/ic_star_border}"
                 app:layout_constraintEnd_toEndOf="@id/txt_description"
                 app:layout_constraintTop_toBottomOf="@id/txt_description"
                 tools:srcCompat="@drawable/ic_star"
