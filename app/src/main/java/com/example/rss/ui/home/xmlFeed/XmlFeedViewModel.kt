@@ -1,6 +1,7 @@
 package com.example.rss.ui.home.xmlFeed
 
 import androidx.annotation.VisibleForTesting
+import androidx.lifecycle.MutableLiveData
 import com.example.rss.base.BaseViewModel
 import com.example.rss.domain.model.response.ErrorResponse
 import com.example.rss.domain.model.response.SuccessResponse
@@ -15,6 +16,9 @@ class XmlFeedViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     private var xmlFeed: Unit? = null
+
+    val xmlFeedLiveData = MutableLiveData<List<DetailModel>>()
+
 
     override fun onResume() {
         super.onResume()
@@ -32,6 +36,7 @@ class XmlFeedViewModel @Inject constructor(
     fun onGetXmlFeedResponse(response: UseCaseResponse<List<DetailModel>>){
         when (response) {
             is SuccessResponse -> {
+                xmlFeedLiveData.value = response.value
                 //showToastMessage(response.value[0].title)
             }
             is ErrorResponse -> {

@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="item"
-            type="com.example.rss.domain.model.jsonFeed.ArticleModel" />
-
+            type="com.example.rss.domain.model.xmlFeed.DetailModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -26,26 +26,25 @@
             android:layout_height="match_parent">
 
             <ImageView
-                srcImageUrl="@{item.image}"
                 android:id="@+id/img_news"
+                srcImageUrl="@{item.imageUrl}"
                 android:layout_width="100dp"
                 android:layout_height="80dp"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
                 android:contentDescription="@string/app_name"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@tools:sample/avatars"
-                />
+                tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
-                android:text="@{item.date}"
                 android:id="@+id/txt_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:textSize="12dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="8dp"
+                android:text="@{item.date}"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/img_news"
                 tools:text="1397/12/20" />
 
@@ -59,39 +58,40 @@
                 android:lines="1"
                 android:text="@{item.title}"
                 android:textColor="@color/white"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/img_news"
+                app:layout_constraintEnd_toStartOf="@id/img_news"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txt_date"
-                tools:text="title" />
+                tools:text="تیتر خبر" />
 
 
             <TextView
-                android:text="@{item.description}"
                 android:id="@+id/txt_description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:lines="3"
+                android:text="@{item.description}"
                 app:layout_constraintEnd_toEndOf="@+id/txt_title"
                 app:layout_constraintStart_toStartOf="@id/txt_title"
                 app:layout_constraintTop_toBottomOf="@id/txt_title"
-                tools:text="description" />
+                tools:text="توضیحات خبر" />
 
             <ImageButton
-                android:id="@+id/img_favorite_en"
+                android:id="@+id/img_favorite_fa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?android:selectableItemBackgroundBorderless"
                 android:contentDescription="@string/favorites"
                 android:padding="4dp"
-                android:tint="@color/gold500"
                 android:src="@{item.isFavorite ? @drawable/ic_star : @drawable/ic_star_border}"
-                app:layout_constraintEnd_toEndOf="@id/txt_description"
+                android:tint="@color/gold500"
+                app:layout_constraintStart_toStartOf="@id/txt_description"
                 app:layout_constraintTop_toBottomOf="@id/txt_description"
-                tools:srcCompat="@drawable/ic_star"
-                tools:ignore="NewApi" />
+                tools:ignore="NewApi"
+                tools:srcCompat="@drawable/ic_star" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
