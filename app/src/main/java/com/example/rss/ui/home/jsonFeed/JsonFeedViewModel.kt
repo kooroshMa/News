@@ -1,6 +1,7 @@
 package com.example.rss.ui.home.jsonFeed
 
 import androidx.annotation.VisibleForTesting
+import androidx.lifecycle.MutableLiveData
 import com.example.rss.base.BaseViewModel
 import com.example.rss.domain.model.jsonFeed.ArticleModel
 import com.example.rss.domain.model.response.ErrorResponse
@@ -13,6 +14,8 @@ class JsonFeedViewModel @Inject constructor(
     val navigator: JsonFeedNavigator,
     private val jsonFeedUseCase: JsonFeedUseCase
 ) : BaseViewModel() {
+
+    val jsonFeedLiveData = MutableLiveData<List<ArticleModel>>()
 
     companion object{
         private const val SOURCE = "techcrunch"
@@ -38,10 +41,9 @@ class JsonFeedViewModel @Inject constructor(
     fun onGetJsonFeedResult(response: UseCaseResponse<List<ArticleModel>>) {
         when (response) {
             is SuccessResponse -> {
-                //showToastMessage(response.value[0].title)
+                jsonFeedLiveData.value = response.value
             }
             is ErrorResponse -> {
-                //showToastMessage("fail")
             }
         }
     }
