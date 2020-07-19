@@ -6,7 +6,6 @@ import com.example.rss.domain.model.jsonFeed.ArticleModel
 import com.example.rss.domain.model.response.ErrorResponse
 import com.example.rss.domain.model.response.SuccessResponse
 import com.example.rss.domain.model.response.UseCaseResponse
-import com.example.rss.domain.model.xmlFeed.DetailModel
 import com.example.rss.domain.usecase.JsonFeedUseCase
 import javax.inject.Inject
 
@@ -39,10 +38,10 @@ class JsonFeedViewModel @Inject constructor(
     fun onGetJsonFeedResult(response: UseCaseResponse<List<ArticleModel>>) {
         when (response) {
             is SuccessResponse -> {
-                showToastMessage(response.value[0].title)
+                //showToastMessage(response.value[0].title)
             }
             is ErrorResponse -> {
-                showToastMessage("fail")
+                //showToastMessage("fail")
             }
         }
     }

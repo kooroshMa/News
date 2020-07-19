@@ -1,7 +1,7 @@
 package com.example.rss
 
 object Android {
-    const val minSdkVersion = 18
+    const val minSdkVersion = 21
     const val targetSdkVersion = 29
     const val compileSdkVersion = 29
     const val applicationId = "com.example.rss"

@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#D9D9D9</color>
 
+    <color name="cardViewsBackGround">#1c1c1c</color>
+
     <color name="white">#FFFFFF</color>
     <color name="gold500">#FFbF00</color>
     <color name="gold100">#FFEBB2</color>
