@@ -1,4 +1,4 @@
-package com.example.rss.data.repository
+package com.example.rss.data.repository.jsonFeed
 
 import com.example.rss.data.source.db.dao.JsonFeedDao
 import com.example.rss.domain.model.jsonFeed.ArticleModel

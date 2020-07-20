@@ -1,4 +1,4 @@
-package com.example.rss.data.repository
+package com.example.rss.data.repository.xmlFeed
 
 import com.example.rss.data.di.Cloud
 import com.example.rss.data.source.cloud.BaseCloudRepository
@@ -18,7 +18,9 @@ class XmlFeedRepositoryImpl @Inject constructor(
             .flatMap {
                 if (it == 0)
                 // nothing exists on database, so get them from cloud
-                    getXmlFeedFromCloud()
+                    getXmlFeedFromCloud().flatMap {
+                        xmlFeedDao.getXmlFeed()
+                    }
                 else
                 // there are some movies in db, so attempt to get them
                     xmlFeedDao.getXmlFeed().also {

@@ -1,4 +1,4 @@
-package com.example.rss.data.repository
+package com.example.rss.data.repository.jsonFeed
 
 import com.example.rss.data.di.Cloud
 import com.example.rss.data.source.cloud.BaseCloudRepository

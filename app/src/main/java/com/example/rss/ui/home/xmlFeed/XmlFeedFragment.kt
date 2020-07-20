@@ -1,13 +1,15 @@
 package com.example.rss.ui.home.xmlFeed
 
+import android.view.View
 import androidx.lifecycle.Observer
 import com.example.rss.R
 import com.example.rss.base.BaseFragment
 import com.example.rss.base.ViewModelScope
-import com.example.rss.base.adapter.SingleLayoutAdapter
+import com.example.rss.base.adapter.ClickHandleInterface
 import com.example.rss.databinding.FragmentXmlFeedBinding
 import com.example.rss.databinding.ItemXmlFeedBinding
 import com.example.rss.domain.model.xmlFeed.DetailModel
+import com.example.rss.util.extension.toast
 
 class XmlFeedFragment : BaseFragment<XmlFeedViewModel, FragmentXmlFeedBinding>() {
 
@@ -17,15 +19,25 @@ class XmlFeedFragment : BaseFragment<XmlFeedViewModel, FragmentXmlFeedBinding>()
     override fun onViewInitialized() {
         binding.apply {
             vm = viewModel
-            adapter = SingleLayoutAdapter<DetailModel, ItemXmlFeedBinding>(
+            adapter = XmlFeedAdapter<DetailModel, ItemXmlFeedBinding>(
                 R.layout.item_xml_feed,
                 emptyList(),
-                vm)
+                vm,
+                onBind = {
+                    position = it
+                },
+                clickHandleInterface = object : ClickHandleInterface<DetailModel> {
+                    override fun click(view: View, items: List<DetailModel>, position: Int) {
+                        val isFavorite = items[position].isFavorite ?: false
+                        if (isFavorite) viewModel.unFavoriteXmlFeed(items[position])
+                        else viewModel.favoriteXmlFeed(items[position])
+                    }
+                })
         }
         bindObservables()
     }
 
-    private fun bindObservables(){
+    private fun bindObservables() {
         viewModel.xmlFeedLiveData.observe(this, Observer {
             binding.adapter?.swapItems(it)
         })
