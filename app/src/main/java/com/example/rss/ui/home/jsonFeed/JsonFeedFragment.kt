@@ -29,7 +29,8 @@ class JsonFeedFragment : BaseFragment<JsonFeedViewModel, FragmentJsonFeedBinding
                 },
                 clickHandleInterface = object : ClickHandleInterface<ArticleModel> {
                     override fun click(view: View, items: List<ArticleModel>, position: Int) {
-                        viewModel.favoriteJsonFeed(items[position])
+                        if (items[position].isFavorite) viewModel.unFavoriteJsonFeed(items[position])
+                        else viewModel.favoriteJsonFeed(items[position])
                     }
                 })
         }

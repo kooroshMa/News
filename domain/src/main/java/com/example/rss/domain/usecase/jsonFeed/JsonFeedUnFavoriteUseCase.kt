@@ -7,21 +7,20 @@ import com.example.rss.domain.usecase.base.FlowableUseCase
 import io.reactivex.Flowable
 import javax.inject.Inject
 
-class JsonFeedFavoriteUseCase @Inject constructor(
+class JsonFeedUnFavoriteUseCase @Inject constructor(
     errorUtil: DomainErrorUtil,
     private val jsonFeedFavoriteRepository: JsonFeedFavoriteRepository
 ) : FlowableUseCase<Unit>(errorUtil) {
 
     private lateinit var articleModel: ArticleModel
 
-    fun setParameters(articleModel: ArticleModel): JsonFeedFavoriteUseCase {
+    fun setParameters(articleModel: ArticleModel): JsonFeedUnFavoriteUseCase {
         this.articleModel = articleModel
         return this
     }
 
     override fun execute(): Flowable<Unit> {
-        return jsonFeedFavoriteRepository.favoriteJsonFeed(articleModel)
+        return jsonFeedFavoriteRepository.unFavoriteJsonFeed(articleModel)
     }
-
 
 }

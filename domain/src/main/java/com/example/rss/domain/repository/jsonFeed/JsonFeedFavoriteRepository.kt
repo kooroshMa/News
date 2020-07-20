@@ -7,4 +7,5 @@ interface JsonFeedFavoriteRepository {
 
     fun favoriteJsonFeed(articleModel: ArticleModel):Flowable<Unit>
 
+    fun unFavoriteJsonFeed(articleModel: ArticleModel):Flowable<Unit>
 }

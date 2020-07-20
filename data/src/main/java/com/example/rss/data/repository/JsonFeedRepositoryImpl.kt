@@ -18,7 +18,9 @@ class JsonFeedRepositoryImpl @Inject constructor(
             .flatMap {
                 if (it == 0)
                 // nothing exists on database, so get them from cloud
-                    getJsonFeedFromCloud(sources, apiKey)
+                    getJsonFeedFromCloud(sources, apiKey).flatMap {
+                        jasonFeedDao.getJsonFeed()
+                    }
                 else
                 // there are some movies in db, so attempt to get them
                     jasonFeedDao.getJsonFeed().also {

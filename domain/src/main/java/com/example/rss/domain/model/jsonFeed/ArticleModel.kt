@@ -35,5 +35,5 @@ data class ArticleModel(
     @SerializedName("content")
     val content: String,
     @ColumnInfo(name = "isFavorite")
-    val isFavorite: Boolean?
+    val isFavorite: Boolean = false
 ):Parcelable

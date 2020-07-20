@@ -21,4 +21,7 @@ interface JsonFeedDao {
 
     @Query("UPDATE jsonFeed SET isFavorite=1 WHERE url =:id")
     fun favoriteJsonFeed(id: String)
+
+    @Query("UPDATE jsonFeed SET isFavorite=0 WHERE url =:id")
+    fun unFavoriteJsonFeed(id: String)
 }

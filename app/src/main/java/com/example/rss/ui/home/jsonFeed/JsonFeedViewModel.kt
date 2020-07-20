@@ -8,13 +8,15 @@ import com.example.rss.domain.model.response.ErrorResponse
 import com.example.rss.domain.model.response.SuccessResponse
 import com.example.rss.domain.model.response.UseCaseResponse
 import com.example.rss.domain.usecase.jsonFeed.JsonFeedFavoriteUseCase
+import com.example.rss.domain.usecase.jsonFeed.JsonFeedUnFavoriteUseCase
 import com.example.rss.domain.usecase.jsonFeed.JsonFeedUseCase
 import javax.inject.Inject
 
 class JsonFeedViewModel @Inject constructor(
     val navigator: JsonFeedNavigator,
     private val jsonFeedUseCase: JsonFeedUseCase,
-    private val jsonFeedFavoriteUseCase: JsonFeedFavoriteUseCase
+    private val jsonFeedFavoriteUseCase: JsonFeedFavoriteUseCase,
+    private val jsonFeedUnFavoriteUseCase: JsonFeedUnFavoriteUseCase
 ) : BaseViewModel() {
 
     val jsonFeedLiveData = MutableLiveData<List<ArticleModel>>()
@@ -56,5 +58,10 @@ class JsonFeedViewModel @Inject constructor(
     }
 
     private fun onFavoriteResponse(response: UseCaseResponse<Unit>) {
+    }
+
+    fun unFavoriteJsonFeed(articleModel: ArticleModel){
+        jsonFeedUnFavoriteUseCase.setParameters(articleModel).execute(
+            this.compositeDisposable, this::onFavoriteResponse)
     }
 }

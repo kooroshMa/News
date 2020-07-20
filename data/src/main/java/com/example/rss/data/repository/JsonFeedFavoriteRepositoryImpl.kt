@@ -13,4 +13,8 @@ class JsonFeedFavoriteRepositoryImpl  @Inject constructor(
     override fun favoriteJsonFeed(articleModel: ArticleModel):Flowable<Unit> {
         return Flowable.fromCallable{ jsonFeedDao.favoriteJsonFeed(articleModel.link) }
     }
+
+    override fun unFavoriteJsonFeed(articleModel: ArticleModel): Flowable<Unit> {
+        return Flowable.fromCallable { jsonFeedDao.unFavoriteJsonFeed(articleModel.link) }
+    }
 }
