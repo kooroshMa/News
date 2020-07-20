@@ -56,16 +56,12 @@ data class DetailModel @JvmOverloads constructor(
     @param:Text(required = false)
     val date: String? = null,
 
-    @ColumnInfo(name = "isFavorite")
-    @field:Path("isFavorite")
-    @field:Text(required = false)
-    @param:Path("isFavorite")
-    @param:Text(required = false)
-    val isFavorite: Boolean? = false,
-
     @PrimaryKey
     @ColumnInfo(name = "guid")
     @field:Element(name = "guid")
     @param:Element(name = "guid")
-    val guid: String = ""
+    val guid: String = "",
+
+    @ColumnInfo(name = "isFavorite")
+    val isFavorite: Boolean = false
 ): Parcelable

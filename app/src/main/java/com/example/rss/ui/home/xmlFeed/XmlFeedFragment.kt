@@ -9,7 +9,6 @@ import com.example.rss.base.adapter.ClickHandleInterface
 import com.example.rss.databinding.FragmentXmlFeedBinding
 import com.example.rss.databinding.ItemXmlFeedBinding
 import com.example.rss.domain.model.xmlFeed.DetailModel
-import com.example.rss.util.extension.toast
 
 class XmlFeedFragment : BaseFragment<XmlFeedViewModel, FragmentXmlFeedBinding>() {
 
@@ -28,8 +27,7 @@ class XmlFeedFragment : BaseFragment<XmlFeedViewModel, FragmentXmlFeedBinding>()
                 },
                 clickHandleInterface = object : ClickHandleInterface<DetailModel> {
                     override fun click(view: View, items: List<DetailModel>, position: Int) {
-                        val isFavorite = items[position].isFavorite ?: false
-                        if (isFavorite) viewModel.unFavoriteXmlFeed(items[position])
+                        if (items[position].isFavorite) viewModel.unFavoriteXmlFeed(items[position])
                         else viewModel.favoriteXmlFeed(items[position])
                     }
                 })
