@@ -3,7 +3,10 @@ package com.example.rss.domain.model.xmlFeed
 import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import com.example.rss.domain.model.FeedsModel
+import com.example.rss.domain.model.FeedsType
 import kotlinx.android.parcel.Parcelize
 import org.simpleframework.xml.*
 
@@ -19,7 +22,7 @@ data class DetailModel @JvmOverloads constructor(
     @field:Text(required = false)
     @param:Path("title")
     @param:Text(required = false)
-    val title: String? = null,
+    override val title: String? = null,
 
     @ColumnInfo(name = "link")
     @field:Path("link")
@@ -64,4 +67,6 @@ data class DetailModel @JvmOverloads constructor(
 
     @ColumnInfo(name = "isFavorite")
     val isFavorite: Boolean = false
-): Parcelable
+    /*@Ignore
+    override val feedsType: FeedsType = FeedsType.Xml*/
+): Parcelable, FeedsModel

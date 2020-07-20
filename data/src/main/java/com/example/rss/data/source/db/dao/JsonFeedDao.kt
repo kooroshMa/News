@@ -4,13 +4,15 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.example.rss.domain.model.FeedsModel
 import com.example.rss.domain.model.jsonFeed.ArticleModel
+import com.example.rss.domain.model.xmlFeed.DetailModel
 import io.reactivex.Flowable
 
 @Dao
 interface JsonFeedDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertJsonFeed(jsonFeed: List<ArticleModel>): List<Long>
 
     @Query("SELECT COUNT(*) FROM jsonFeed")
@@ -24,4 +26,7 @@ interface JsonFeedDao {
 
     @Query("UPDATE jsonFeed SET isFavorite=0 WHERE url =:id")
     fun unFavoriteJsonFeed(id: String)
+
+    @Query("SELECT * FROM jsonFeed WHERE isFavorite=1")
+    fun getFavoriteJsonFeed(): Flowable<List<ArticleModel>>
 }

@@ -3,7 +3,10 @@ package com.example.rss.domain.model.jsonFeed
 import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import com.example.rss.domain.model.FeedsModel
+import com.example.rss.domain.model.FeedsType
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
@@ -17,7 +20,7 @@ data class ArticleModel(
     val author: String,
     @ColumnInfo(name = "title")
     @SerializedName("title")
-    val title: String,
+    override val title: String,
     @ColumnInfo(name = "description")
     @SerializedName("description")
     val description: String,
@@ -36,4 +39,6 @@ data class ArticleModel(
     val content: String,
     @ColumnInfo(name = "isFavorite")
     val isFavorite: Boolean = false
-):Parcelable
+   /* @Ignore
+    override val feedsType: FeedsType = FeedsType.Json*/
+):Parcelable, FeedsModel
