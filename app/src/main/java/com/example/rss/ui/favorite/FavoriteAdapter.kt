@@ -7,7 +7,6 @@ import com.example.rss.base.adapter.BaseViewHolder
 import com.example.rss.databinding.ItemJsonFeedBinding
 import com.example.rss.databinding.ItemXmlFeedBinding
 import com.example.rss.domain.model.FeedsModel
-import com.example.rss.domain.model.FeedsType
 import com.example.rss.domain.model.jsonFeed.ArticleModel
 import com.example.rss.domain.model.xmlFeed.DetailModel
 import kotlinx.android.synthetic.main.item_json_feed.view.*

@@ -13,9 +13,7 @@ class GetAllFavoriteUseCase @Inject constructor(
 ) : FlowableUseCase<List<FeedsModel>>(errorUtil) {
 
     override fun execute(): Flowable<List<FeedsModel>> {
-        return getAllFavoriteFeedRepository.getAllXmlFeedFavorites().flatMap {
-            Flowable.fromCallable { it as List<FeedsModel> }
-        }.mergeWith(getAllFavoriteFeedRepository.getAllJsonFeedFavorites())
+        return getAllFavoriteFeedRepository.getAllXmlFeedFavorites()
+            .mergeWith(getAllFavoriteFeedRepository.getAllJsonFeedFavorites())
     }
-
 }

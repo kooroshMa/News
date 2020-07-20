@@ -1,5 +1,6 @@
 package com.example.rss.ui.favorite
 
+import androidx.lifecycle.MutableLiveData
 import com.example.rss.base.BaseViewModel
 import com.example.rss.domain.model.FeedsModel
 import com.example.rss.domain.model.response.ErrorResponse
@@ -14,6 +15,8 @@ class FavoriteViewModel @Inject constructor(
 ) :
     BaseViewModel() {
 
+    val getAllFavoritesLiveData = MutableLiveData<List<FeedsModel>>()
+
     override fun onCreate() {
         super.onCreate()
         unFavoriteJsonFeed()
@@ -27,6 +30,7 @@ class FavoriteViewModel @Inject constructor(
     private fun onFavoriteResponse(response: UseCaseResponse<List<FeedsModel>>) {
         when (response) {
             is SuccessResponse -> {
+                getAllFavoritesLiveData.value = response.value
             }
             is ErrorResponse -> {
 
