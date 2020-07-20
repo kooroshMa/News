@@ -10,7 +10,7 @@
 
         <variable
             name="adapter"
-            type="com.example.rss.base.adapter.SingleLayoutAdapter" />
+            type="com.example.rss.ui.home.jsonFeed.JsonFeedAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

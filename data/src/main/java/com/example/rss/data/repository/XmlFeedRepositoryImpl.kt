@@ -4,7 +4,7 @@ import com.example.rss.data.di.Cloud
 import com.example.rss.data.source.cloud.BaseCloudRepository
 import com.example.rss.data.source.db.dao.XmlFeedDao
 import com.example.rss.domain.model.xmlFeed.DetailModel
-import com.example.rss.domain.repository.XmlFeedRepository
+import com.example.rss.domain.repository.xmlFeed.XmlFeedRepository
 import io.reactivex.Flowable
 import javax.inject.Inject
 

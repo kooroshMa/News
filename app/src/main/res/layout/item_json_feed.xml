@@ -8,6 +8,9 @@
             name="item"
             type="com.example.rss.domain.model.jsonFeed.ArticleModel" />
 
+        <variable
+            name="position"
+            type="int" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

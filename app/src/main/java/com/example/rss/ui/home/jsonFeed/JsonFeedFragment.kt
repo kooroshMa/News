@@ -1,13 +1,15 @@
 package com.example.rss.ui.home.jsonFeed
 
+import android.view.View
 import androidx.lifecycle.Observer
 import com.example.rss.R
 import com.example.rss.base.BaseFragment
 import com.example.rss.base.ViewModelScope
-import com.example.rss.base.adapter.SingleLayoutAdapter
+import com.example.rss.base.adapter.ClickHandleInterface
 import com.example.rss.databinding.FragmentJsonFeedBinding
 import com.example.rss.databinding.ItemJsonFeedBinding
 import com.example.rss.domain.model.jsonFeed.ArticleModel
+import com.example.rss.util.extension.toast
 
 
 class JsonFeedFragment : BaseFragment<JsonFeedViewModel, FragmentJsonFeedBinding>() {
@@ -18,15 +20,23 @@ class JsonFeedFragment : BaseFragment<JsonFeedViewModel, FragmentJsonFeedBinding
     override fun onViewInitialized() {
         binding.apply {
             vm = viewModel
-            adapter = SingleLayoutAdapter<ArticleModel, ItemJsonFeedBinding>(
+            adapter = JsonFeedAdapter<ArticleModel, ItemJsonFeedBinding>(
                 R.layout.item_json_feed,
                 emptyList(),
-                vm)
+                vm,
+                onBind = {
+                    position = it
+                },
+                clickHandleInterface = object : ClickHandleInterface<ArticleModel> {
+                    override fun click(view: View, items: List<ArticleModel>, position: Int) {
+                        viewModel.favoriteJsonFeed(items[position])
+                    }
+                })
         }
         bindObservables()
     }
 
-    private fun bindObservables(){
+    private fun bindObservables() {
         viewModel.jsonFeedLiveData.observe(this, Observer {
             binding.adapter?.swapItems(it)
         })

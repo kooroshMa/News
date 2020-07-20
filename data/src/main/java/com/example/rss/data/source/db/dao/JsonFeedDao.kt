@@ -18,4 +18,7 @@ interface JsonFeedDao {
 
     @Query("SELECT * FROM jsonFeed")
     fun getJsonFeed(): Flowable<List<ArticleModel>>
+
+    @Query("UPDATE jsonFeed SET isFavorite=1 WHERE url =:id")
+    fun favoriteJsonFeed(id: String)
 }

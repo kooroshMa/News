@@ -1,8 +1,8 @@
-package com.example.rss.domain.usecase
+package com.example.rss.domain.usecase.jsonFeed
 
 import com.example.rss.domain.mapper.DomainErrorUtil
 import com.example.rss.domain.model.jsonFeed.ArticleModel
-import com.example.rss.domain.repository.JsonFeedRepository
+import com.example.rss.domain.repository.jsonFeed.JsonFeedRepository
 import com.example.rss.domain.usecase.base.FlowableUseCase
 import io.reactivex.Flowable
 import javax.inject.Inject
