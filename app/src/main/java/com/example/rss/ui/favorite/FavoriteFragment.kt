@@ -28,7 +28,7 @@ class FavoriteFragment : BaseFragment<FavoriteViewModel, FragmentFavoriteBinding
 
         }
         binding.adapter?.onFavorite = {
-            when(it){
+            when (it) {
                 is ArticleModel -> {
                     viewModel.unFavoriteJsonFeed(it)
                 }
@@ -38,26 +38,30 @@ class FavoriteFragment : BaseFragment<FavoriteViewModel, FragmentFavoriteBinding
             }
         }
         binding.adapter?.onItemClick = {
-            when(it){
+            when (it) {
                 is ArticleModel -> {
                     val bundle = Bundle()
                     bundle.putSerializable("enumType", FeedsType.Json)
-                    bundle.putString("id" , it.link)
-                    viewModel.activityAction{ activity ->
-                        viewModel.navigator.startActivity(activity,
-                        DetailFeedsActivity::class.java,
-                        Bundle()
-                    )}
+                    bundle.putString("id", it.link)
+                    viewModel.activityAction { activity ->
+                        viewModel.navigator.startActivity(
+                            activity,
+                            DetailFeedsActivity::class.java,
+                            bundle
+                        )
+                    }
                 }
                 is DetailModel -> {
                     val bundle = Bundle()
                     bundle.putSerializable("enumType", FeedsType.Xml)
-                    bundle.putString("id" , (it as ArticleModel).link)
-                    viewModel.activityAction{ activity ->
-                        viewModel.navigator.startActivity(activity,
+                    bundle.putString("id", it.link)
+                    viewModel.activityAction { activity ->
+                        viewModel.navigator.startActivity(
+                            activity,
                             DetailFeedsActivity::class.java,
-                            Bundle()
-                        )}
+                            bundle
+                        )
+                    }
                 }
             }
         }

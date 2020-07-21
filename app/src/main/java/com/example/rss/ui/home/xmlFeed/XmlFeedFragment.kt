@@ -45,7 +45,7 @@ class XmlFeedFragment : BaseFragment<XmlFeedViewModel, FragmentXmlFeedBinding>()
             viewModel.activityAction{ activity ->
                 viewModel.navigator.startActivity(activity,
                     DetailFeedsActivity::class.java,
-                    Bundle()
+                    bundle
                 )}
         }
         bindObservables()

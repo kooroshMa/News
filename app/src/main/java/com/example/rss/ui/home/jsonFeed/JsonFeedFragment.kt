@@ -44,7 +44,7 @@ class JsonFeedFragment : BaseFragment<JsonFeedViewModel, FragmentJsonFeedBinding
             viewModel.activityAction{ activity ->
                 viewModel.navigator.startActivity(activity,
                     DetailFeedsActivity::class.java,
-                    Bundle()
+                    bundle
                 )}
         }
 

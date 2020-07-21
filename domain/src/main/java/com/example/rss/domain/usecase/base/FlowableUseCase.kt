@@ -1,5 +1,6 @@
 package com.example.rss.domain.usecase.base
 
+import android.util.Log
 import com.example.rss.domain.mapper.DomainErrorUtil
 import com.example.rss.domain.model.response.ErrorResponse
 import com.example.rss.domain.model.response.SuccessResponse
@@ -21,6 +22,8 @@ abstract class FlowableUseCase<T>(val errorUtil: DomainErrorUtil) : UseCase<Flow
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 {
+                    Log.i("ccdcdeer", it.toString())
+                    Log.i("ccdcdeer", "error")
                     onResponse(
                         SuccessResponse(
                             it

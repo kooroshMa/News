@@ -29,5 +29,5 @@ interface JsonFeedDao {
     fun getFavoriteJsonFeed(): Flowable<List<ArticleModel>>
 
     @Query("SELECT * FROM jsonFeed WHERE url=:id")
-    fun findNewsEnById(id: String): ArticleModel?
+    fun findNewsEnById(id: String): Flowable<ArticleModel>
 }

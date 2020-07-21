@@ -3,10 +3,8 @@ package com.example.rss.domain.model.xmlFeed
 import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
-import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.example.rss.domain.model.FeedsModel
-import com.example.rss.domain.model.FeedsType
 import kotlinx.android.parcel.Parcelize
 import org.simpleframework.xml.*
 

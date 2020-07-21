@@ -3,7 +3,6 @@ package com.example.rss.ui.home.xmlFeed
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.MutableLiveData
 import com.example.rss.base.BaseViewModel
-import com.example.rss.domain.model.jsonFeed.ArticleModel
 import com.example.rss.domain.model.response.ErrorResponse
 import com.example.rss.domain.model.response.SuccessResponse
 import com.example.rss.domain.model.response.UseCaseResponse

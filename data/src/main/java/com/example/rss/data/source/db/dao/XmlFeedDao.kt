@@ -29,6 +29,6 @@ interface XmlFeedDao {
     fun getFavoriteXmlFeed(): Flowable<List<DetailModel>>
 
     @Query("SELECT * FROM xmlFeed WHERE guid=:id")
-    fun findNewsFaById(id: String): DetailModel?
+    fun findNewsFaById(id: String): Flowable<DetailModel>
 
 }

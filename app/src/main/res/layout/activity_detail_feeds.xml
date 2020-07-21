@@ -29,13 +29,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
+            android:src="@{vm.feedsLiveData.isFavorite ? @drawable/ic_star : @drawable/ic_star_border }"
             android:id="@+id/img_favorite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?android:selectableItemBackgroundBorderless"
             android:contentDescription="@string/favorites"
             android:padding="4dp"
-            android:onClick="@{()->vm.onFavoriteClicked()}"
             android:tint="@color/gold500"
             app:layout_constraintEnd_toStartOf="@id/txt_favorite"
             app:layout_constraintHorizontal_chainStyle="packed"
