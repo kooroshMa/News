@@ -4,9 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.rss.domain.model.FeedsModel
 import com.example.rss.domain.model.jsonFeed.ArticleModel
-import com.example.rss.domain.model.xmlFeed.DetailModel
 import io.reactivex.Flowable
 
 @Dao
@@ -29,4 +27,7 @@ interface JsonFeedDao {
 
     @Query("SELECT * FROM jsonFeed WHERE isFavorite=1")
     fun getFavoriteJsonFeed(): Flowable<List<ArticleModel>>
+
+    @Query("SELECT * FROM jsonFeed WHERE url=:id")
+    fun findNewsEnById(id: String): ArticleModel?
 }

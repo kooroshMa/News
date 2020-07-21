@@ -4,4 +4,5 @@ import com.example.rss.base.BaseNavigator
 import javax.inject.Inject
 
 class FavoriteNavigator @Inject constructor() : BaseNavigator {
+
 }

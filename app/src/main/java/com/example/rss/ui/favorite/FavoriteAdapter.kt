@@ -18,6 +18,7 @@ class FavoriteAdapter(
 ) : BaseAdapter<FeedsModel, ViewDataBinding>(viewModel = viewModel, items = list) {
 
     var onFavorite: ((feedsModel: FeedsModel) -> Unit)? = null
+    var onItemClick: ((feedsModel: FeedsModel) -> Unit)? = null
 
     companion object {
         private const val JSON_VIEW_TYPE = 1
@@ -52,6 +53,9 @@ class FavoriteAdapter(
                     holder.itemView.img_favorite_en.setOnClickListener{
                         onFavorite?.invoke(modelItem as ArticleModel)
                     }
+                    holder.itemView.card_itemContainer.setOnClickListener {
+                        onItemClick?.invoke(modelItem as ArticleModel)
+                    }
                 }
             }
 
@@ -59,7 +63,9 @@ class FavoriteAdapter(
                 getItem(position).let {modelItem ->
                     holder.itemView.img_favorite_fa.setOnClickListener{
                         onFavorite?.invoke(modelItem as DetailModel)
-
+                    }
+                    holder.itemView.card_xmlItemContainer.setOnClickListener {
+                        onItemClick?.invoke(modelItem as DetailModel)
                     }
                 }
             }

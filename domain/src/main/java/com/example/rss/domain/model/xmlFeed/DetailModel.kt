@@ -66,7 +66,6 @@ data class DetailModel @JvmOverloads constructor(
     val guid: String = "",
 
     @ColumnInfo(name = "isFavorite")
-    val isFavorite: Boolean = false
-    /*@Ignore
-    override val feedsType: FeedsType = FeedsType.Xml*/
+    override val isFavorite: Boolean = false
+
 ): Parcelable, FeedsModel

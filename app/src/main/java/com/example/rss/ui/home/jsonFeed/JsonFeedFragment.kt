@@ -9,6 +9,7 @@ import com.example.rss.base.adapter.ClickHandleInterface
 import com.example.rss.databinding.FragmentJsonFeedBinding
 import com.example.rss.databinding.ItemJsonFeedBinding
 import com.example.rss.domain.model.jsonFeed.ArticleModel
+import com.example.rss.util.extension.toast
 
 class JsonFeedFragment : BaseFragment<JsonFeedViewModel, FragmentJsonFeedBinding>() {
 
@@ -32,6 +33,11 @@ class JsonFeedFragment : BaseFragment<JsonFeedViewModel, FragmentJsonFeedBinding
                     }
                 })
         }
+
+        binding.adapter?.onItemClick = {
+            toast((it as ArticleModel).description)
+        }
+
         bindObservables()
     }
 

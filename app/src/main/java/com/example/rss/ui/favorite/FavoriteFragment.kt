@@ -7,6 +7,7 @@ import com.example.rss.base.ViewModelScope
 import com.example.rss.databinding.FragmentFavoriteBinding
 import com.example.rss.domain.model.jsonFeed.ArticleModel
 import com.example.rss.domain.model.xmlFeed.DetailModel
+import com.example.rss.util.extension.toast
 
 class FavoriteFragment : BaseFragment<FavoriteViewModel, FragmentFavoriteBinding>() {
 
@@ -31,6 +32,16 @@ class FavoriteFragment : BaseFragment<FavoriteViewModel, FragmentFavoriteBinding
                 }
                 is DetailModel -> {
                     viewModel.unFavoriteXmlFeed(it)
+                }
+            }
+        }
+        binding.adapter?.onItemClick = {
+            when(it){
+                is ArticleModel -> {
+                    toast(it.description)
+                }
+                is DetailModel -> {
+                    toast(it.description.orEmpty())
                 }
             }
         }

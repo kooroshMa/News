@@ -8,7 +8,9 @@ import com.example.rss.base.ViewModelScope
 import com.example.rss.base.adapter.ClickHandleInterface
 import com.example.rss.databinding.FragmentXmlFeedBinding
 import com.example.rss.databinding.ItemXmlFeedBinding
+import com.example.rss.domain.model.jsonFeed.ArticleModel
 import com.example.rss.domain.model.xmlFeed.DetailModel
+import com.example.rss.util.extension.toast
 
 class XmlFeedFragment : BaseFragment<XmlFeedViewModel, FragmentXmlFeedBinding>() {
 
@@ -31,6 +33,10 @@ class XmlFeedFragment : BaseFragment<XmlFeedViewModel, FragmentXmlFeedBinding>()
                         else viewModel.favoriteXmlFeed(items[position])
                     }
                 })
+        }
+
+        binding.adapter?.onItemClick = {
+            toast((it as DetailModel).description.orEmpty())
         }
         bindObservables()
     }
