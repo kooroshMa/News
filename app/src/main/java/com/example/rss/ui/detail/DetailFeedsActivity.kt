@@ -1,9 +1,11 @@
 package com.example.rss.ui.detail
 
 import android.util.Log
+import androidx.lifecycle.Observer
 import com.example.rss.R
 import com.example.rss.base.BaseActivity
 import com.example.rss.databinding.ActivityDetailFeedsBinding
+import com.example.rss.domain.model.FeedsModel
 import com.example.rss.domain.model.FeedsType
 import kotlinx.android.synthetic.main.activity_detail_feeds.*
 
@@ -21,6 +23,7 @@ class DetailFeedsActivity : BaseActivity<DetailFeedsViewModel, ActivityDetailFee
         getBundles()
         handleStarClickEvent()
         viewModel.findFromDb(id,type)
+        bindObservables()
     }
 
     private fun initWebView() {
@@ -37,5 +40,11 @@ class DetailFeedsActivity : BaseActivity<DetailFeedsViewModel, ActivityDetailFee
             viewModel.findFromDb(id, type)
             viewModel.favoriteOrUnFavorite(type)
         }
+    }
+
+    fun bindObservables(){
+        viewModel.feedsLiveData.observe(this, Observer {
+            my_web_view.loadUrl(it.link)
+        })
     }
 }

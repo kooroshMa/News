@@ -27,7 +27,7 @@ data class DetailModel @JvmOverloads constructor(
     @field:Text(required = false)
     @param:Path("link")
     @param:Text(required = false)
-    val link: String? = null,
+    override val link: String? = null,
 
     @ColumnInfo(name = "description")
     @field:Path("description")

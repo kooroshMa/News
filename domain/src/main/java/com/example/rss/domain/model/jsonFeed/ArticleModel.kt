@@ -25,7 +25,7 @@ data class ArticleModel(
     @PrimaryKey
     @ColumnInfo(name = "url")
     @SerializedName("url")
-    val link: String,
+    override val link: String,
     @ColumnInfo(name = "urlToImage")
     @SerializedName("urlToImage")
     val image: String,
