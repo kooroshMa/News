@@ -9,6 +9,7 @@ import com.example.rss.base.ViewModelScope
 import com.example.rss.base.adapter.ClickHandleInterface
 import com.example.rss.databinding.FragmentXmlFeedBinding
 import com.example.rss.databinding.ItemXmlFeedBinding
+import com.example.rss.domain.model.FeedsType
 import com.example.rss.domain.model.jsonFeed.ArticleModel
 import com.example.rss.domain.model.xmlFeed.DetailModel
 import com.example.rss.ui.detail.DetailFeedsActivity
@@ -39,7 +40,8 @@ class XmlFeedFragment : BaseFragment<XmlFeedViewModel, FragmentXmlFeedBinding>()
 
         binding.adapter?.onItemClick = {
             val bundle = Bundle()
-            bundle.putParcelable("model" , (it as DetailModel))
+            bundle.putSerializable("enumType", FeedsType.Xml)
+            bundle.putString("id" , (it as DetailModel).link)
             viewModel.activityAction{ activity ->
                 viewModel.navigator.startActivity(activity,
                     DetailFeedsActivity::class.java,

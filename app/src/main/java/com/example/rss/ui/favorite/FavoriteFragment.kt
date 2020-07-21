@@ -6,10 +6,10 @@ import com.example.rss.R
 import com.example.rss.base.BaseFragment
 import com.example.rss.base.ViewModelScope
 import com.example.rss.databinding.FragmentFavoriteBinding
+import com.example.rss.domain.model.FeedsType
 import com.example.rss.domain.model.jsonFeed.ArticleModel
 import com.example.rss.domain.model.xmlFeed.DetailModel
 import com.example.rss.ui.detail.DetailFeedsActivity
-import com.example.rss.util.extension.toast
 
 class FavoriteFragment : BaseFragment<FavoriteViewModel, FragmentFavoriteBinding>() {
 
@@ -41,7 +41,8 @@ class FavoriteFragment : BaseFragment<FavoriteViewModel, FragmentFavoriteBinding
             when(it){
                 is ArticleModel -> {
                     val bundle = Bundle()
-                    bundle.putParcelable("model" , (it))
+                    bundle.putSerializable("enumType", FeedsType.Json)
+                    bundle.putString("id" , it.link)
                     viewModel.activityAction{ activity ->
                         viewModel.navigator.startActivity(activity,
                         DetailFeedsActivity::class.java,
@@ -50,7 +51,8 @@ class FavoriteFragment : BaseFragment<FavoriteViewModel, FragmentFavoriteBinding
                 }
                 is DetailModel -> {
                     val bundle = Bundle()
-                    bundle.putParcelable("model" , (it))
+                    bundle.putSerializable("enumType", FeedsType.Xml)
+                    bundle.putString("id" , (it as ArticleModel).link)
                     viewModel.activityAction{ activity ->
                         viewModel.navigator.startActivity(activity,
                             DetailFeedsActivity::class.java,

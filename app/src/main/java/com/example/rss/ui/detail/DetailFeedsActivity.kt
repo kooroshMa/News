@@ -1,8 +1,10 @@
 package com.example.rss.ui.detail
 
+import android.os.Bundle
+import android.util.Log
+import com.example.rss.R
 import com.example.rss.base.BaseActivity
 import com.example.rss.databinding.ActivityDetailFeedsBinding
-import com.example.rss.R
 import kotlinx.android.synthetic.main.activity_detail_feeds.*
 
 class DetailFeedsActivity : BaseActivity<DetailFeedsViewModel, ActivityDetailFeedsBinding>() {
@@ -11,6 +13,9 @@ class DetailFeedsActivity : BaseActivity<DetailFeedsViewModel, ActivityDetailFee
 
     override fun onViewInitialized() {
         binding.vm = viewModel
+
+
+
     }
 
     fun configEvent(){
