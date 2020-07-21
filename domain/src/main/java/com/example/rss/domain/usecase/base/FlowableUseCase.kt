@@ -22,8 +22,6 @@ abstract class FlowableUseCase<T>(val errorUtil: DomainErrorUtil) : UseCase<Flow
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 {
-                    Log.i("ccdcdeer", it.toString())
-                    Log.i("ccdcdeer", "error")
                     onResponse(
                         SuccessResponse(
                             it
