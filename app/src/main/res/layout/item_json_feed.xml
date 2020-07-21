@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.rss.domain.model.jsonFeed.ArticleModel" />
+
+        <variable
+            name="position"
+            type="int" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_itemContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        app:cardBackgroundColor="@color/cardViewsBackGround"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                srcImageUrl="@{item.image}"
+                android:id="@+id/img_news"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars"
+                />
+
+            <TextView
+                android:text="@{item.date}"
+                android:id="@+id/txt_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:textSize="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/img_news"
+                tools:text="1397/12/20" />
+
+            <TextView
+                android:id="@+id/txt_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="8dp"
+                android:lines="1"
+                android:text="@{item.title}"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/img_news"
+                app:layout_constraintTop_toBottomOf="@id/txt_date"
+                tools:text="title" />
+
+
+            <TextView
+                android:text="@{item.description}"
+                android:id="@+id/txt_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:lines="3"
+                app:layout_constraintEnd_toEndOf="@+id/txt_title"
+                app:layout_constraintStart_toStartOf="@id/txt_title"
+                app:layout_constraintTop_toBottomOf="@id/txt_title"
+                tools:text="description" />
+
+            <ImageButton
+                android:id="@+id/img_favorite_en"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:contentDescription="@string/favorites"
+                android:padding="4dp"
+                android:tint="@color/gold500"
+                android:src="@{item.isFavorite ? @drawable/ic_star : @drawable/ic_star_border}"
+                app:layout_constraintEnd_toEndOf="@id/txt_description"
+                app:layout_constraintTop_toBottomOf="@id/txt_description"
+                tools:srcCompat="@drawable/ic_star"
+                tools:ignore="NewApi" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

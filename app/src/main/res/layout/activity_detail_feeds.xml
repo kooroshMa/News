@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+       <variable
+           name="vm"
+           type="com.example.rss.ui.detail.DetailFeedsViewModel" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/txt_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/favorites"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/img_favorite"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:src="@{vm.feedsLiveData.isFavorite ? @drawable/ic_star : @drawable/ic_star_border }"
+            android:id="@+id/img_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?android:selectableItemBackgroundBorderless"
+            android:contentDescription="@string/favorites"
+            android:padding="4dp"
+            android:tint="@color/gold500"
+            app:layout_constraintEnd_toStartOf="@id/txt_favorite"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txt_favorite"
+            tools:src="@drawable/ic_star" />
+
+
+        <WebView
+            android:id="@+id/my_web_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_favorite" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,53 @@
+import com.example.rss.Android
+import com.example.rss.Libs
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion Android.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion Android.minSdkVersion
+        targetSdkVersion Android.targetSdkVersion
+        versionCode Android.versionCode
+        versionName Android.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+kapt {
+    generateStubs = true
+}
+
+dependencies {
+    implementation Libs.Common.retrofitSimpleXmlConverter
+    implementation Libs.Common.kotlin
+    implementation Libs.Jetpack.lifecycleExtensions
+    implementation Libs.Common.dagger
+    implementation Libs.Jetpack.room
+    kapt Libs.Common.daggerCompiler
+    implementation Libs.Common.gson
+    implementation Libs.Common.rxJava
+    implementation Libs.Common.rxAndroid
+    testImplementation Libs.Testing.junit
+    testImplementation Libs.Testing.mockitoKotlin
+    androidTestImplementation Libs.Testing.testRunner
+    androidTestImplementation Libs.Testing.esperesso
+}

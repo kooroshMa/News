@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimary">#7b7b7b</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#D9D9D9</color>
+
+    <color name="cardViewsBackGround">#1c1c1c</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="gold500">#FFbF00</color>
+    <color name="gold200">#FFDF81</color>
+    <color name="gold100">#FFEBB2</color>
+    <color name="gold50">#FFF8E1</color>
 </resources>
