@@ -1,5 +1,6 @@
 package com.example.rss.ui.home.jsonFeed
 
+import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import com.example.rss.R
@@ -9,6 +10,7 @@ import com.example.rss.base.adapter.ClickHandleInterface
 import com.example.rss.databinding.FragmentJsonFeedBinding
 import com.example.rss.databinding.ItemJsonFeedBinding
 import com.example.rss.domain.model.jsonFeed.ArticleModel
+import com.example.rss.ui.detail.DetailFeedsActivity
 import com.example.rss.util.extension.toast
 
 class JsonFeedFragment : BaseFragment<JsonFeedViewModel, FragmentJsonFeedBinding>() {
@@ -35,7 +37,13 @@ class JsonFeedFragment : BaseFragment<JsonFeedViewModel, FragmentJsonFeedBinding
         }
 
         binding.adapter?.onItemClick = {
-            toast((it as ArticleModel).description)
+            val bundle = Bundle()
+            bundle.putParcelable("model" , (it as ArticleModel))
+            viewModel.activityAction{ activity ->
+                viewModel.navigator.startActivity(activity,
+                    DetailFeedsActivity::class.java,
+                    Bundle()
+                )}
         }
 
         bindObservables()

@@ -1,5 +1,6 @@
 package com.example.rss.ui.favorite
 
+import android.os.Bundle
 import androidx.lifecycle.Observer
 import com.example.rss.R
 import com.example.rss.base.BaseFragment
@@ -7,6 +8,7 @@ import com.example.rss.base.ViewModelScope
 import com.example.rss.databinding.FragmentFavoriteBinding
 import com.example.rss.domain.model.jsonFeed.ArticleModel
 import com.example.rss.domain.model.xmlFeed.DetailModel
+import com.example.rss.ui.detail.DetailFeedsActivity
 import com.example.rss.util.extension.toast
 
 class FavoriteFragment : BaseFragment<FavoriteViewModel, FragmentFavoriteBinding>() {
@@ -38,10 +40,22 @@ class FavoriteFragment : BaseFragment<FavoriteViewModel, FragmentFavoriteBinding
         binding.adapter?.onItemClick = {
             when(it){
                 is ArticleModel -> {
-                    toast(it.description)
+                    val bundle = Bundle()
+                    bundle.putParcelable("model" , (it))
+                    viewModel.activityAction{ activity ->
+                        viewModel.navigator.startActivity(activity,
+                        DetailFeedsActivity::class.java,
+                        Bundle()
+                    )}
                 }
                 is DetailModel -> {
-                    toast(it.description.orEmpty())
+                    val bundle = Bundle()
+                    bundle.putParcelable("model" , (it))
+                    viewModel.activityAction{ activity ->
+                        viewModel.navigator.startActivity(activity,
+                            DetailFeedsActivity::class.java,
+                            Bundle()
+                        )}
                 }
             }
         }

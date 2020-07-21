@@ -1,5 +1,6 @@
 package com.example.rss.ui.home.xmlFeed
 
+import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import com.example.rss.R
@@ -10,6 +11,7 @@ import com.example.rss.databinding.FragmentXmlFeedBinding
 import com.example.rss.databinding.ItemXmlFeedBinding
 import com.example.rss.domain.model.jsonFeed.ArticleModel
 import com.example.rss.domain.model.xmlFeed.DetailModel
+import com.example.rss.ui.detail.DetailFeedsActivity
 import com.example.rss.util.extension.toast
 
 class XmlFeedFragment : BaseFragment<XmlFeedViewModel, FragmentXmlFeedBinding>() {
@@ -36,7 +38,13 @@ class XmlFeedFragment : BaseFragment<XmlFeedViewModel, FragmentXmlFeedBinding>()
         }
 
         binding.adapter?.onItemClick = {
-            toast((it as DetailModel).description.orEmpty())
+            val bundle = Bundle()
+            bundle.putParcelable("model" , (it as DetailModel))
+            viewModel.activityAction{ activity ->
+                viewModel.navigator.startActivity(activity,
+                    DetailFeedsActivity::class.java,
+                    Bundle()
+                )}
         }
         bindObservables()
     }
