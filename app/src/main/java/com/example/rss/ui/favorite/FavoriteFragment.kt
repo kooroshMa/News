@@ -1,12 +1,12 @@
 package com.example.rss.ui.favorite
 
-import android.util.Log
 import androidx.lifecycle.Observer
 import com.example.rss.R
 import com.example.rss.base.BaseFragment
 import com.example.rss.base.ViewModelScope
 import com.example.rss.databinding.FragmentFavoriteBinding
-import com.example.rss.domain.model.FeedsModel
+import com.example.rss.domain.model.jsonFeed.ArticleModel
+import com.example.rss.domain.model.xmlFeed.DetailModel
 
 class FavoriteFragment : BaseFragment<FavoriteViewModel, FragmentFavoriteBinding>() {
 
@@ -21,17 +21,26 @@ class FavoriteFragment : BaseFragment<FavoriteViewModel, FragmentFavoriteBinding
     override fun onViewInitialized() {
         binding.apply {
             vm = viewModel
-            adapter = FavoriteAdapter(emptyList(),viewModel)
-        }
+            adapter = FavoriteAdapter(emptyList(), viewModel)
 
+        }
+        binding.adapter?.onFavorite = {
+            when(it){
+                is ArticleModel -> {
+                    viewModel.unFavoriteJsonFeed(it)
+                }
+                is DetailModel -> {
+                    viewModel.unFavoriteXmlFeed(it)
+                }
+            }
+        }
         bindObservables()
     }
 
     private fun bindObservables() {
-        val list = mutableListOf<FeedsModel>()
-        viewModel.getAllFavoritesLiveData.observe(this, Observer {
-            list.addAll(it)
-            binding.adapter?.swapItems(list)
+        viewModel.combineLiveData().observe(this, Observer {
+            binding.adapter?.swapItems(it)
+
         })
     }
 }

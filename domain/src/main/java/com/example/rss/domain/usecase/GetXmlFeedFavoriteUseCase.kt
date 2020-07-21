@@ -1,19 +1,20 @@
 package com.example.rss.domain.usecase
 
 import com.example.rss.domain.mapper.DomainErrorUtil
-import com.example.rss.domain.model.FeedsModel
+import com.example.rss.domain.model.xmlFeed.DetailModel
 import com.example.rss.domain.repository.GetAllFavoriteFeedRepository
 import com.example.rss.domain.usecase.base.FlowableUseCase
 import io.reactivex.Flowable
 import javax.inject.Inject
 
-class GetAllFavoriteUseCase @Inject constructor(
+class GetXmlFeedFavoriteUseCase @Inject constructor(
     errorUtil: DomainErrorUtil,
     private val getAllFavoriteFeedRepository: GetAllFavoriteFeedRepository
-) : FlowableUseCase<List<FeedsModel>>(errorUtil) {
+) : FlowableUseCase<List<DetailModel>>(errorUtil) {
 
-    override fun execute(): Flowable<List<FeedsModel>> {
+    override fun execute(): Flowable<List<DetailModel>> {
         return getAllFavoriteFeedRepository.getAllXmlFeedFavorites()
-            .mergeWith(getAllFavoriteFeedRepository.getAllJsonFeedFavorites())
+
+
     }
 }
