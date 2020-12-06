@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.rss.R
 import com.example.rss.util.extension.toast
@@ -62,13 +61,13 @@ abstract class BaseFragment <V : BaseViewModel, B : ViewDataBinding> :
 
 
     private fun observeLiveDate() {
-        viewModel.activityAction.observe(viewLifecycleOwner, Observer { it?.invoke(requireActivity()) })
+        viewModel.activityAction.observe(viewLifecycleOwner, { it?.invoke(requireActivity()) })
 
-        viewModel.fragmentAction.observe(viewLifecycleOwner, Observer { it?.invoke(this) })
+        viewModel.fragmentAction.observe(viewLifecycleOwner, { it?.invoke(this) })
 
-        viewModel.toastMessage.observe(viewLifecycleOwner, Observer { toast(it) })
+        viewModel.toastMessage.observe(viewLifecycleOwner, { toast(it) })
 
-        viewModel.showLoading.observe(viewLifecycleOwner, Observer {
+        viewModel.showLoading.observe(viewLifecycleOwner, {
             if (it) {
                 if (!progressDialog.isShowing) {
                     progressDialog.show()
