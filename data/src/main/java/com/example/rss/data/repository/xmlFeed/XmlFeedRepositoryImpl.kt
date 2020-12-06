@@ -22,10 +22,8 @@ class XmlFeedRepositoryImpl @Inject constructor(
                         xmlFeedDao.getXmlFeed()
                     }
                 else
-                // there are some movies in db, so attempt to get them
-                    xmlFeedDao.getXmlFeed().also {
-                        getXmlFeedFromCloud()
-                    }
+                // there are some movies in db, so attempt to get them and update db
+                Flowable.concatArrayEager(xmlFeedDao.getXmlFeed(), getXmlFeedFromCloud())
             }
     }
 
