@@ -10,7 +10,7 @@ import io.reactivex.Flowable
 @Dao
 interface JsonFeedDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertJsonFeed(jsonFeed: List<ArticleModel>): List<Long>
 
     @Query("SELECT COUNT(*) FROM jsonFeed")

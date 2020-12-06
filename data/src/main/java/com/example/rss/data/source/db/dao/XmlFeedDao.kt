@@ -10,7 +10,7 @@ import io.reactivex.Flowable
 @Dao
 interface XmlFeedDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertXmlFeed(xmlFeed: List<DetailModel>): List<Long>
 
     @Query("SELECT COUNT(*) FROM xmlFeed")

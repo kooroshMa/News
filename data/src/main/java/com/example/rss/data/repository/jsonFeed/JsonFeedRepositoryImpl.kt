@@ -22,10 +22,8 @@ class JsonFeedRepositoryImpl @Inject constructor(
                         jasonFeedDao.getJsonFeed()
                     }
                 else
-                // there are some movies in db, so attempt to get them
-                    jasonFeedDao.getJsonFeed().also {
-                        getJsonFeedFromCloud(sources, apiKey)
-                    }
+                // there are some movies in db, so attempt to get them and update db
+                    Flowable.concatArrayEager(jasonFeedDao.getJsonFeed(), getJsonFeedFromCloud(sources, apiKey))
             }
     }
 
