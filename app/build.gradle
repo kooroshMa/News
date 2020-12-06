@@ -47,7 +47,7 @@ dependencies {
     implementation project(Libs.Modules.domain)
     implementation project(Libs.Modules.data)
 
-    // Jetpack
+    // JetPack
     implementation Libs.Jetpack.lifecycleExtensions
     implementation Libs.Jetpack.reactiveStreams
     implementation Libs.Jetpack.material
@@ -60,9 +60,6 @@ dependencies {
     // Dagger
     implementation Libs.Common.dagger
     implementation Libs.Common.daggerAndroid
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     kapt Libs.Common.daggerCompiler
     kapt Libs.Common.daggerAndroidCompiler
 
@@ -93,7 +90,7 @@ dependencies {
     //sdp
     implementation Libs.Common.sdp
 
-    //multidex
+    //MultiDex
     implementation Libs.Common.multiDex
 
     //fireBase & googleServices
@@ -108,5 +105,5 @@ dependencies {
     testImplementation Libs.Testing.mockitoKotlin
     testImplementation Libs.Testing.archTesting
     androidTestImplementation Libs.Testing.testRunner
-    androidTestImplementation Libs.Testing.esperesso
+    androidTestImplementation Libs.Testing.espresso
 }

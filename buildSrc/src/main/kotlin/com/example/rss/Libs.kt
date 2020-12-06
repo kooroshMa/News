@@ -62,7 +62,7 @@ object Libs {
     object Testing {
         const val junit = "junit:junit:${Versions.junit}"
         const val testRunner = "androidx.test:runner:${Versions.testRunner}"
-        const val esperesso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
+        const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
         const val mockitoKotlin = "com.nhaarman:mockito-kotlin-kt1.1:${Versions.mockitoKotlin}"
         const val archTesting = "androidx.arch.core:core-testing:${Versions.coreTesting}"
     }
