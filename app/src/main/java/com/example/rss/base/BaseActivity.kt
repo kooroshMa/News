@@ -4,7 +4,6 @@ import android.app.ProgressDialog
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.rss.R
 import com.example.rss.util.extension.toast
@@ -39,11 +38,11 @@ abstract class BaseActivity <V : BaseViewModel, B : ViewDataBinding> : DaggerApp
 
 
     private fun observeLiveDate() {
-        viewModel.activityAction.observe(this, Observer { it?.invoke(this) })
+        viewModel.activityAction.observe(this, { it?.invoke(this) })
 
-        viewModel.toastMessage.observe(this, Observer { toast(it) })
+        viewModel.toastMessage.observe(this, { toast(it) })
 
-        viewModel.showLoading.observe(this, Observer {
+        viewModel.showLoading.observe(this, {
             if (it) {
                 if (!progressDialog.isShowing) {
                     progressDialog.show()
