@@ -1,7 +1,7 @@
 package com.example.rss
 
 object Versions {
-    const val gradle = "4.0.1"
+    const val gradle = "4.1.1"
     const val kotlin = "1.3.72"
     const val arch = "2.2.0"
     const val legacySupp = "1.0.0"
